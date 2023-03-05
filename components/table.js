@@ -1,5 +1,5 @@
 import { BiEdit, BiTrashAlt } from "react-icons/bi"
-import data from "../database/"
+import data from "@/database/database.json"
 
 export default function Table(){
     return (
@@ -40,8 +40,8 @@ export default function Table(){
 function Tr({id, name, avatar, email, salary, date, status}) {
     return(
         <tr className="text-center">
-                    <td className="px-16 py-2">
-                        <img src={avatar || "#"} alt=''/>
+                    <td className="px-16 py-2" >
+                        <img src={avatar || "#"} alt='' className="rounded-full w-30 h-30"/>
                         <span className="">{name || "Unknow"}</span>
                     </td>
                     <td className="px-16 py-2">
