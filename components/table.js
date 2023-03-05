@@ -1,4 +1,5 @@
 import { BiEdit, BiTrashAlt } from "react-icons/bi"
+import data from "../database/"
 
 export default function Table(){
     return (
@@ -27,23 +28,34 @@ export default function Table(){
             </thead>
 
             <tbody className="bg-gray-400">
-                <tr className="text-center">
+                {
+                    data.map((obj, i)=><Tr {...obj} key={i}/>)
+                }
+            </tbody>
+
+        </table>
+    )
+};
+
+function Tr({id, name, avatar, email, salary, date, status}) {
+    return(
+        <tr className="text-center">
                     <td className="px-16 py-2">
-                        <img src='@' alt=''/>
-                        <span className="">Daily Summers</span>
+                        <img src={avatar || "#"} alt=''/>
+                        <span className="">{name || "Unknow"}</span>
                     </td>
                     <td className="px-16 py-2">
-                        <span>dailytituitions@gmail.com</span>
+                        <span>{email || "Unknow"}</span>
                     </td>
                     <td className="px-16 py-2">
-                        <span>U$ 25000,00</span>
+                        <span>{salary || "Unknow"}</span>
                     </td>
                     <td className="px-16 py-2">
-                        <span>10-05-2022</span>
+                        <span>{date || "Unknow"}</span>
                     </td>
                     <td className="px-16 py-2">
                         <button className="cursor">
-                        <span className="bg-green-500 text-white px-5 py-2 rounded-full text-bold">Active</span>
+                        <span className="bg-green-500 text-white px-5 py-2 rounded-full text-bold">{status || "Unknow"}</span>
                         </button>
                     </td>
                     <td className="px-16 py-2 flex justify-around gap-1">
@@ -51,8 +63,5 @@ export default function Table(){
                         <button className="cursor px-2 py-2 bg-white rounded-full hover:bg-red-200"><span className=""><BiTrashAlt size={25} color={"rgb(255,0,0)"}></BiTrashAlt></span></button>                        
                     </td>
                 </tr>
-            </tbody>
-
-        </table>
     )
 };
