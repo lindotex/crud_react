@@ -1,13 +1,16 @@
 import Head from 'next/head'
 import { Inter } from 'next/font/google'
-import styles from '@/styles/Home.module.css'
 import {BiUserPlus, BiEditAlt} from 'react-icons/bi'
 import Table from '@/components/table'
 import Form from '@/components/form'
+import { useState } from 'react'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export default function Home() {
+
+  const[visible, setVisible] = useState
+
   return (
     <section>
       <Head>
