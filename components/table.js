@@ -46,9 +46,9 @@ export default function Table(){
                         <span className="bg-green-500 text-white px-5 py-2 rounded-full text-bold">Active</span>
                         </button>
                     </td>
-                    <td className="px-16 py-2 flex justify-around gap-2">
-                        <button className="cursor mx-1 px-2 py-2 bg-white rounded-full"><span className=""><BiEdit size={25} color={"rgb(34,197,94)"}></BiEdit></span></button>
-                        <button className="cursor mx-1 px-2 py-2 bg-white rounded-full"><span className=""><BiTrashAlt size={25} color={"rgb(255,0,0)"}></BiTrashAlt></span></button>                        
+                    <td className="px-16 py-2 flex justify-around gap-1">
+                        <button className="cursor px-2 py-2 bg-white rounded-full hover:bg-green-300"><span className=""><BiEdit size={25} color={"rgb(34,197,94)"}></BiEdit></span></button>
+                        <button className="cursor px-2 py-2 bg-white rounded-full hover:bg-red-200"><span className=""><BiTrashAlt size={25} color={"rgb(255,0,0)"}></BiTrashAlt></span></button>                        
                     </td>
                 </tr>
             </tbody>

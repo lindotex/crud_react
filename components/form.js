@@ -1,6 +1,8 @@
 import { Reducer } from "react"
 import { useReducer } from "react"
 import { BiPlus } from "react-icons/bi"
+import Success from "./success"
+import Bug from "./bug"
 
 const formReducer = (state, event) => {
     return {
@@ -14,25 +16,33 @@ export default function Form() {
     const [formData, setFormData] = useReducer(formReducer,{})
     const handleSubmit = (e) => {
         e.preventDefault();
-        console.log(formData)
+        if(Object.keys(formData) == 0) {
+            console.log("Don't have any data!")
+            return (
+                <Bug message={"Data Successfuly Added!"}></Bug>
+        )} else {
+            console.log(formData)
+        }
     }
+
+    if(Object.keys(formData).lenght > 0) return <Success message={"Data Successfuly Added!"}></Success>
 
     return (
         <form action="" className="grid lg:grid-cols-2 w-4/6 gap-4" onSubmit={handleSubmit}>
             <div className="input-type">
-                <input type='text' onChange={setFormData} name='firstname' placeholder='First Name' className="border w-full px-5 py-3 focus:outline-none rounded-md"></input>
+                <input  type='text' onChange={setFormData} name='firstname' placeholder='First Name' className="border w-full px-5 py-3 focus:outline-none rounded-md"></input>
             </div>
             <div className="input-type">
-                <input type='text'onChange={setFormData}  name='lastname' placeholder='Last Name' className="border w-full px-5 py-3 focus:outline-none rounded-md"></input>
+                <input  type='text'onChange={setFormData}  name='lastname' placeholder='Last Name' className="border w-full px-5 py-3 focus:outline-none rounded-md"></input>
             </div>
             <div className="input-type">
-                <input type='e-mail' onChange={setFormData}  name='email' placeholder='e-mail' className="border w-full px-5 py-3 focus:outline-none rounded-md"></input>
+                <input  type='e-mail' onChange={setFormData}  name='email' placeholder='e-mail' className="border w-full px-5 py-3 focus:outline-none rounded-md"></input>
             </div>
             <div className="input-type">
-                <input type='currency' onChange={setFormData}  name='salary' placeholder='Salary' className="border w-full px-5 py-3 focus:outline-none rounded-md"></input>
+                <input  type='currency' onChange={setFormData}  name='salary' placeholder='Salary' className="border w-full px-5 py-3 focus:outline-none rounded-md"></input>
             </div>
             <div className="input-type">
-                <input type='date' onChange={setFormData}  name='date' placeholder='Date' className="border w-full px-5 py-3 focus:outline-none rounded-md"></input>
+                <input  type='date' onChange={setFormData}  name='date' placeholder='Date' className="border w-full px-5 py-3 focus:outline-none rounded-md"></input>
             </div>
 
             <div className="flex gap-10 items-center">
