@@ -7,6 +7,8 @@ exports["default"] = handler;
 
 var _conn = _interopRequireDefault(require("@/database/conn"));
 
+var _controller = require("@/database/controller");
+
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
 
 function handler(req, res) {
@@ -24,38 +26,39 @@ function handler(req, res) {
 
           method = req.method;
           _context.t0 = method;
-          _context.next = _context.t0 === 'GET' ? 5 : _context.t0 === 'POST' ? 7 : _context.t0 === 'PUT' ? 9 : _context.t0 === 'DELETE' ? 11 : 13;
+          _context.next = _context.t0 === 'GET' ? 5 : _context.t0 === 'POST' ? 8 : _context.t0 === 'PUT' ? 10 : _context.t0 === 'DELETE' ? 12 : 14;
           break;
 
         case 5:
+          (0, _controller.getUsers)(req, res);
           res.status(200).json({
             name: 'GET REQUEST'
           });
-          return _context.abrupt("break", 15);
+          return _context.abrupt("break", 16);
 
-        case 7:
+        case 8:
           res.status(200).json({
             name: 'POST REQUEST'
           });
-          return _context.abrupt("break", 15);
+          return _context.abrupt("break", 16);
 
-        case 9:
+        case 10:
           res.status(200).json({
             name: 'PUT REQUEST'
           });
-          return _context.abrupt("break", 15);
+          return _context.abrupt("break", 16);
 
-        case 11:
+        case 12:
           res.status(200).json({
             name: 'DELETE REQUEST'
           });
-          return _context.abrupt("break", 15);
+          return _context.abrupt("break", 16);
 
-        case 13:
+        case 14:
           res.setHeader('Allow', ['GET', 'POST', 'PUT', 'DELETE']);
           res.status(405).end("Method ".concat(method, " is not allowed!"));
 
-        case 15:
+        case 16:
         case "end":
           return _context.stop();
       }
