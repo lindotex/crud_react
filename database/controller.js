@@ -1,5 +1,3 @@
-
-
 /** Controllers */
 import Users from "@/model/user"
 
